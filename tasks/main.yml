@@ -1,5 +1,10 @@
 ---
 # tasks file for soehlert.gitlab
+- name: Update cache for Debian based
+  apt:
+    update_cache: yes
+  when: ( ansible_os_family == "Debian" )
+
 - name: Install prereqs
   package:
     name: "{{ item }}"
